@@ -1,13 +1,10 @@
-const express = require('express')
-const app = express()
-const mongoose = require('mongoose') //libary for mongodb.
-const {PORT} = require('./config.js')
-const cors = require('cors')
-const morgan = require('morgan')
-const bodyParser = require('body-parser')
-const editorDocumentRoutes = require('./routes/api/editorDocument')
-const path = require('path')
-const database = require('./db/database')
+const express = require('express');
+const app = express();
+const {PORT} = require('./config.js');
+const cors = require('cors');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const editorDocumentRoutes = require('./routes/api/editorDocument');
 
 app.use(cors())
 app.use(bodyParser.json())

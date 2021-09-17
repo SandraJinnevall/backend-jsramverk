@@ -1,6 +1,6 @@
 const mongooseConnect = require('../db/database');
 const mongoose = require('mongoose');
-const { after, before } = require('mocha');
+const { after, before, beforeEach } = require('mocha');
 
 let setupTestDb = async () => {
     before ((done)=>{
