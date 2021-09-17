@@ -14,7 +14,7 @@ git:
     submodules: false
 
 before_install:
-- cp .ignored.file.copy config.json
+- cp .config.json config.json
 
 before_script:
     - npm install
