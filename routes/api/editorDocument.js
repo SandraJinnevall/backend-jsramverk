@@ -1,9 +1,9 @@
-const { Router } = require('express')
+const express = require('express')
 const mongoose = require('mongoose') //libary for mongodb.
-const router = Router()
+const router = express()
 const { DB, Schema } = require('../../db/database')
 
-console.log("schema:", Schema)
+console.log("schema:??", Schema)
 
 
 router.get('/', async (req, res) => {
@@ -23,17 +23,17 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const neweditorDocument = new Schema(req.body)
+    console.log("ny: ", neweditorDocument)
     try {
         await mongoose.connect(DB, console.log("MongoDB connected"));
-        const editorDocument = await neweditorDocument.save()
-        if (!editorDocument) throw new Error('Coulnt save the document')
-        res.status(200).json({editorDocument})
+        const editorDocument1 = await neweditorDocument.save()
+        res.status(200).json({editorDocument1})
     } catch (error) {
         res.status(500).json({ message: error.message })
     } 
     finally {
         await mongoose.connection.close()
-        console.log("database was shut down")
+        console.log("database was shut down1")
     }
 })
 
@@ -60,14 +60,14 @@ router.delete('/:id', async (req, res) => {
     const { id } = req.params
     try {
         await mongoose.connect(DB, console.log("MongoDB connected"));
-        const removed = await Schema.findByIdAndDelete(id)
+        const removed = await Schema.findByIdAndDelete(id);
         if (!removed) throw Error('Something went wrong ')
-        res.status(200).json({removed})
+        res.status(200).json({removed});
     } catch (error) {
-        res.status(500).json({ message: error.message })
+        res.status(500).send('error, couldnt delete');
     } finally {
         await mongoose.connection.close()
-        console.log("database was shut down")
+        console.log("database was shut down2")
     }
 })
 

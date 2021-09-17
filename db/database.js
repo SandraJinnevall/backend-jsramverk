@@ -2,22 +2,32 @@ const mongoose = require('mongoose') //libary for mongodb.
 const EditorDocument = require('../models/EditorDocument')
 const TestEditorDocument = require('../models/TestEditorDocument')
 const config = require("./../config.json");
-const db = `mongodb+srv://${config.username}:${config.password}@cluster0.mc86y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+let db = `mongodb+srv://${config.username}:${config.password}@cluster0.mc86y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 let schema = EditorDocument;
 
 if (process.env.NODE_ENV === 'test') {
-    // We can even use MongoDB Atlas for testing
     console.log("TESTING MODE")
     schema = TestEditorDocument;
+    console.log("schema!!", schema)
 }
-
-mongoose.connect(db,
-    err => {
-        if(err) throw err;
-        console.log('connected to MongoDB')
-    });
 
 module.exports = {
     DB: db,
+    connectdb: function connectDB() {
+        mongoose.connect(db,
+            err => {
+                if(err) throw err;
+                console.log('connected to MongoDB')
+            }
+        ); 
+        return mongoose.connection
+        .once('open', () => console.log('Connected!'))
+        .on('error', (error) => {
+            console.warn('Error : ',error);
+        });
+    },   
+    closedb: function dbclose() {
+        return mongoose.disconnect();
+    },
     Schema: schema
 }

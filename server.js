@@ -15,6 +15,9 @@ app.use(morgan('combined'))
 
 
 app.use('/api/editorDocument', editorDocumentRoutes)
-app.get('/', (req, res) => res.send('Its working!'))
 
-app.listen(PORT, () => console.log(`app listening at http://localhost:${PORT}`))
+const server = app.listen(PORT, () => {
+    console.log('api listening on port ' + PORT);
+});
+
+module.exports = server;
