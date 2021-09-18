@@ -9,8 +9,8 @@ chai.use(chaiHttp);
 
 let id = "";
 
-describe('TESTING ROUTES', async () => {
-    await setupTestDb();
+describe('TESTING ROUTES', () => {
+    // setupTestDb();
 
     it('POST: should get 200 creating a document', (done) => {
         let testDoc = {

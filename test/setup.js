@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 const { after, before, beforeEach } = require('mocha');
 
 let setupTestDb = () => {
-    before (async(done)=>{
-         await mongooseConnect.connectdb()
+    before ((done)=>{
+        mongooseConnect.connectdb()
+            console.log("OPEN")
             .once('open', () => done())
             .on('error', (error) => console.warn('Error : ',error))
     })
@@ -27,6 +28,7 @@ let setupTestDb = () => {
 
     after ((done)=>{
         mongooseConnect.closedb()
+                console.log("CLOSE")
                 .then(()=>done())
                 .catch((err)=>done(err))
     })
