@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "NODE_ENV='test' nyc --reporter=html --reporter=text mocha 'test/**/*.js' --timeout 120000",
+    "test": "NODE_ENV='test' nyc --reporter=html --reporter=text mocha 'test/**/*.js'",
     "start": "nodemon server.js",
     "production": "NODE_ENV='production' node server.js"
   },
