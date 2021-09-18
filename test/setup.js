@@ -2,9 +2,9 @@ const mongooseConnect = require('../db/database');
 const mongoose = require('mongoose');
 const { after, before, beforeEach } = require('mocha');
 
-let setupTestDb = async () => {
-    before ((done)=>{
-         mongooseConnect.connectdb()
+let setupTestDb = () => {
+    before (async(done)=>{
+         await mongooseConnect.connectdb()
             .once('open', () => done())
             .on('error', (error) => console.warn('Error : ',error))
     })
