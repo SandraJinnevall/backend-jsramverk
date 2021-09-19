@@ -6,6 +6,8 @@ const database = require("../../db/database.js");
 
 // database.connectdb();
 
+console.log("länk:", DB);
+
 router.get('/', async (req, res) => {
     try {
         await mongoose.connect(DB, console.log("MongoDB connected"));
