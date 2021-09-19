@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">82.98% </span>
+                <span class="strong">69.57% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>39/47</span>
+                <span class='fraction'>32/46</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">33.33% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/6</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">88.64% </span>
+                <span class="strong">72.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>39/44</span>
+                <span class='fraction'>32/44</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -134,27 +134,11 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -173,18 +157,34 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -207,21 +207,21 @@
 const mongoose = require('mongoose') //libary for mongodb.
 const router = express()
 const { DB, Schema } = require('../../db/database')
+const database = require("../../db/database.js");
 &nbsp;
 console.log("schema:??", Schema)
 &nbsp;
 &nbsp;
 router.get('/', async (req, res) =&gt; {
     try {
-        await mongoose.connect(DB, console.log("MongoDB connected"));
+        const db = await database.connectdb();
         const editorDocuments = await Schema.find()
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (!editorDocuments) <span class="cstat-no" title="statement not covered" >throw new Error('There is no editorDocuments')</span>
         res.status(200).json({editorDocuments})
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >        res.status(500).json({ message: error.message })</span>
     } 
     finally {
-        await mongoose.connection.close()
+        await database.closedb();
         console.log("database was shut down")
     }
 })
@@ -242,22 +242,22 @@ router.post('/', async (req, res) =&gt; {
     }
 })
 &nbsp;
-router.put('/:id', async (req, res) =&gt; {
-    try {
-        await mongoose.connect(DB, console.log("MongoDB connected"));
-        const response = await Schema.findByIdAndUpdate(req.params.id, req.body, {
+router.put('/:id', <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
+<span class="cstat-no" title="statement not covered" >    try {</span>
+<span class="cstat-no" title="statement not covered" >        await mongoose.connect(DB, console.log("MongoDB connected"));</span>
+        const response = <span class="cstat-no" title="statement not covered" >await Schema.findByIdAndUpdate(req.params.id, req.body, {</span>
             new: true,
             runValidators: true,
             context: 'query'
            })
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (!response) <span class="cstat-no" title="statement not covered" >throw Error('couldnt find by ID')</span>
+<span class="cstat-no" title="statement not covered" >        if (!response) <span class="cstat-no" title="statement not covered" >throw Error('couldnt find by ID')</span></span>
 &nbsp;
-        res.status(200).json({ success: true, data: response })
+<span class="cstat-no" title="statement not covered" >        res.status(200).json({ success: true, data: response })</span>
     } catch (error) {
 <span class="cstat-no" title="statement not covered" >        res.status(500).json({ message: error.message })</span>
     } finally {
-        await mongoose.connection.close()
-        console.log("database was shut down")
+<span class="cstat-no" title="statement not covered" >        await mongoose.connection.close()</span>
+<span class="cstat-no" title="statement not covered" >        console.log("database was shut down")</span>
     }
 })
 &nbsp;
@@ -283,7 +283,7 @@ module.exports = router</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sat Sep 18 2021 23:03:10 GMT+0200 (GMT+02:00)
+                at Sun Sep 19 2021 11:21:56 GMT+0200 (GMT+02:00)
             </div>
         </div>
         <script src="../../../prettify.js"></script>

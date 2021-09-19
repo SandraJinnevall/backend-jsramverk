@@ -20,7 +20,7 @@ module.exports = {
         mongoose.connect(db,
             err => {
                 if(err) throw err;
-                console.log('connected to MongoDB')
+                console.log('connectdb!')
             }
         ); 
         return mongoose.connection
@@ -30,6 +30,7 @@ module.exports = {
         });
     },   
     closedb: function dbclose() {
+        console.log("closedb")
         return mongoose.disconnect();
     },
     Schema: schema

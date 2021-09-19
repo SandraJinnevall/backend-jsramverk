@@ -2,21 +2,21 @@ const express = require('express')
 const mongoose = require('mongoose') //libary for mongodb.
 const router = express()
 const { DB, Schema } = require('../../db/database')
+const database = require("../../db/database.js");
 
 console.log("schema:??", Schema)
 
 
 router.get('/', async (req, res) => {
     try {
-        await mongoose.connect(DB, console.log("MongoDB connected"));
+        const db = await database.connectdb();
         const editorDocuments = await Schema.find()
-        if (!editorDocuments) throw new Error('There is no editorDocuments')
         res.status(200).json({editorDocuments})
     } catch (error) {
         res.status(500).json({ message: error.message })
     } 
     finally {
-        await mongoose.connection.close()
+        await database.closedb();
         console.log("database was shut down")
     }
 })
