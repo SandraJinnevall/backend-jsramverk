@@ -6,7 +6,7 @@ require('dotenv').config()
 let db = process.env.DB_LINK;
 let schema = EditorDocument;
 
-console.log("länk:", DB_LINK);
+console.log("länk:", process.env.DB_LINK);
 
 if (process.env.NODE_ENV === 'test') {
     console.log("TESTING MODE")
