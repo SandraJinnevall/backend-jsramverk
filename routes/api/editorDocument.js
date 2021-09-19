@@ -9,14 +9,14 @@ console.log("schema:??", Schema)
 
 router.get('/', async (req, res) => {
     try {
-        const db = await database.connectdb();
+        await mongoose.connect(DB, console.log("MongoDB connected"));
         const editorDocuments = await Schema.find()
         res.status(200).json({editorDocuments})
     } catch (error) {
         res.status(500).json({ message: error.message })
     } 
     finally {
-        await database.closedb();
+        await mongoose.connection.close()
         console.log("database was shut down")
     }
 })
