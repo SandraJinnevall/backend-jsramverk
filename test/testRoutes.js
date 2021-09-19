@@ -42,32 +42,32 @@ describe('TESTING ROUTES', () => {
         });
     });
 
-    // describe('PUT', () => {
-    //     it('PUT: should get 200 chaning an document', (done) => {
-    //         let updatedoc = {
-    //             documentHeading: "TestDoc!!",
-    //             documentText: "Test update"
-    //         };
-    //         chai.request(server)
-    //             .put("/api/editorDocument/"+id)
-    //             .send(updatedoc)
-    //             .end((err, res) => {
-    //                 res.should.have.status(200);
-    //                 done();
-    //             });
-    //     });
-    // });
+    describe('PUT', () => {
+        it('PUT: should get 200 chaning an document', (done) => {
+            let updatedoc = {
+                documentHeading: "TestDoc!!",
+                documentText: "Test update"
+            };
+            chai.request(server)
+                .put("/api/editorDocument/"+id)
+                .send(updatedoc)
+                .end((err, res) => {
+                    res.should.have.status(200);
+                    done();
+                });
+        });
+    });
 
 
-    // describe('DELETE', () => {
-    //     it('DELETE: trying to delete data that doesnt exist', (done) => {
-    //         chai.request(server).delete('/api/editorDocument/4949')
-    //                 .then((res) => {
-    //                     expect(res.status).to.equal(500)
-    //                     done()
-    //                 })
-    //                 .catch((err) => done(err))
-    //     });
-    // });
+    describe('DELETE', () => {
+        it('DELETE: trying to delete data that doesnt exist', (done) => {
+            chai.request(server).delete('/api/editorDocument/4949')
+                    .then((res) => {
+                        expect(res.status).to.equal(500)
+                        done()
+                    })
+                    .catch((err) => done(err))
+        });
+    });
 
 })
