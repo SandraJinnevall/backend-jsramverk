@@ -22,11 +22,11 @@ module.exports = {
                 console.log('connectdb!')
             }
         ); 
-        // return mongoose.connection
-        // .once('open', () => console.log('Connected!'))
-        // .on('error', (error) => {
-        //     console.warn('Error : ',error);
-        // });
+        return mongoose.connection
+        .once('open', () => console.log('Connected!'))
+        .on('error', (error) => {
+            console.warn('Error : ',error);
+        });
     },   
     closedb: function dbclose() {
         console.log("closedb")
