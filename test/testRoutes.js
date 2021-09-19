@@ -59,14 +59,14 @@ describe('TESTING ROUTES', () => {
     // });
 
 
-    describe('DELETE', () => {
-        it('DELETE: trying to delete data that doesnt exist', (done) => {
-            chai.request(server).delete('/api/editorDocument/4949')
-                    .then((res) => {
-                        expect(res.status).to.equal(500)
-                        done()
-                    })
-                    .catch((err) => done(err))
-        });
-    });
+    // describe('DELETE', () => {
+    //     it('DELETE: trying to delete data that doesnt exist', (done) => {
+    //         chai.request(server).delete('/api/editorDocument/4949')
+    //                 .then((res) => {
+    //                     expect(res.status).to.equal(500)
+    //                     done()
+    //                 })
+    //                 .catch((err) => done(err))
+    //     });
+    // });
 })
