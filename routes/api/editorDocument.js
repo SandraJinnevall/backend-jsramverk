@@ -15,11 +15,11 @@ router.get('/', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message })
     } 
-    // finally {
-    //     // await mongoose.connection.close()
-    //     // database.closedb();
-    //     console.log("database was shut down")
-    // }
+    finally {
+        mongoose.connection.close()
+        // database.closedb();
+        console.log("database was shut down")
+    }
 })
 
 router.post('/', async (req, res) => {
@@ -33,10 +33,10 @@ router.post('/', async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: error.message })
     } 
-    // finally {
-    //     await mongoose.connection.close()
-    //     console.log("database was shut down1")
-    // }
+    finally {
+        mongoose.connection.close()
+        console.log("database was shut down1")
+    }
 })
 
 router.put('/:id', async (req, res) => {
