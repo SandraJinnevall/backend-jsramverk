@@ -14,22 +14,5 @@ if (process.env.NODE_ENV === 'test') {
 
 module.exports = {
     DB: db,
-    connectdb: function connectDB() {
-        mongoose.connect(db,
-            err => {
-                if(err) throw err;
-                console.log('connectdb!')
-            }
-        ); 
-        return mongoose.connection
-        .once('open', () => console.log('Connected!'))
-        .on('error', (error) => {
-            console.warn('Error : ',error);
-        });
-    },   
-    closedb: function dbclose() {
-        console.log("closedb")
-        return mongoose.disconnect();
-    },
     Schema: schema
 }
