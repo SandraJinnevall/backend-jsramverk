@@ -16,6 +16,7 @@ describe('TESTING ROUTES', () => {
         it('GET: trying to get all data', (done) => {
             chai.request(server).get('/api/editorDocument')
                     .then((res) => {
+                        console.log(res)
                         expect(res.status).to.equal(200)
                         done()
                     })
