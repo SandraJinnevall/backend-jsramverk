@@ -10,7 +10,8 @@ console.log("länk:", DB);
 
 router.get('/', async (req, res) => {
     try {
-        await mongoose.connect(DB, console.log("MongoDB connected"));
+        await mongoose.connect(DB, { useNewUrlParser: true })
+        // await mongoose.connect(DB, console.log("MongoDB connected"));
         // await database.connectdb();
         const editorDocuments = await Schema.find()
         res.status(200).json({editorDocuments})
@@ -28,7 +29,8 @@ router.post('/', async (req, res) => {
     const neweditorDocument = new Schema(req.body)
     console.log("ny: ", neweditorDocument)
     try {
-        await mongoose.connect(DB, console.log("MongoDB connected"));
+        // await mongoose.connect(DB, console.log("MongoDB connected"));
+        await mongoose.connect(DB, { useNewUrlParser: true })
         // await database.connectdb();
         const editorDocument1 = await neweditorDocument.save()
         res.status(200).json({editorDocument1})
@@ -37,6 +39,7 @@ router.post('/', async (req, res) => {
     } 
     finally {
         mongoose.connection.close()
+        // database.closedb();
         console.log("database was shut down1")
     }
 })

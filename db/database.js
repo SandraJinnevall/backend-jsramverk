@@ -3,28 +3,14 @@ const EditorDocument = require('../models/EditorDocument')
 const TestEditorDocument = require('../models/TestEditorDocument')
 const configjs = require("./../config.js");
 require('dotenv').config()
-// let db = process.env.DB_LINK;
+let db = process.env.DB_LINK;
 let schema = EditorDocument;
-
-let config;
-
-try {
-    config = require("../config.json");
-} catch (err) {
-    console.log(err);
-}
-
-const username = process.env.SECRET_USERNAME || config.username;
-const password = process.env.SECRET_PASSWORD || config.password;
-
-db = `mongodb+srv://${username}:${password}@cluster0.mc86y.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
-
-console.log("länk:", process.env.DB_LINK);
 
 if (process.env.NODE_ENV === 'test') {
     console.log("TESTING MODE")
-    schema = TestEditorDocument;
-}
+    db = "mongodb://localhost:27017/test"
+} 
+
 
 module.exports = {
     DB: db,
