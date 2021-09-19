@@ -4,12 +4,12 @@ const router = express()
 const { DB, Schema } = require('../../db/database')
 const database = require("../../db/database.js");
 
-database.connectdb();
+// database.connectdb();
 
 router.get('/', async (req, res) => {
     try {
-        // await mongoose.connect(DB, console.log("MongoDB connected"));
-        await database.connectdb();
+        await mongoose.connect(DB, console.log("MongoDB connected"));
+        // await database.connectdb();
         const editorDocuments = await Schema.find()
         res.status(200).json({editorDocuments})
     } catch (error) {
@@ -26,8 +26,8 @@ router.post('/', async (req, res) => {
     const neweditorDocument = new Schema(req.body)
     console.log("ny: ", neweditorDocument)
     try {
-        // await mongoose.connect(DB, console.log("MongoDB connected"));
-        await database.connectdb();
+        await mongoose.connect(DB, console.log("MongoDB connected"));
+        // await database.connectdb();
         const editorDocument1 = await neweditorDocument.save()
         res.status(200).json({editorDocument1})
     } catch (error) {
