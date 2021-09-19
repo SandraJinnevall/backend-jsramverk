@@ -1,36 +1,36 @@
 const mongooseConnect = require('../db/database');
 const mongoose = require('mongoose');
 const { after, before, beforeEach } = require('mocha');
+const { DB, Schema } = require('../db/database')
 
-let setupTestDb = () => {
-    before ((done)=>{
-        mongooseConnect.connectdb()
-            console.log("OPEN")
-            .once('open', () => done())
-            .on('error', (error) => console.warn('Error : ',error))
+let setupTestDb = async () => {
+    await mongoose.connect(DB);
+    var db = await mongoose.connection;
+    before (()=>{
+        db.on('error', console.error.bind(console, 'connection error:'));
+        db.once('open', function callback () {
+        console.log("h");
+        });
     })
 
-    beforeEach((done)=>{
-        mongoose.connection.db.listCollections({name: "testeditordocuments"})
-            .next((error,collection)=>{
-                if(collection){
-                    mongoose.connection.db.dropCollection("testeditordocuments")
-                    .then(() => done())
-                    .catch((err) => done(err))
-                }
-                else{
-                    done(error)
-                }
-            })
+    // beforeEach((done)=>{
+    //     db.listCollections({name: "testeditordocuments"})
+    //         .next((error,collection)=>{
+    //             if(collection){
+    //                 db.dropCollection("testeditordocuments")
+    //                 .then(() => done())
+    //                 .catch((err) => done(err))
+    //             }
+    //             else{
+    //                 done(error)
+    //             }
+    //         })
         
         
-    })
+    // })
 
-    after ((done)=>{
-        mongooseConnect.closedb()
-                console.log("CLOSE")
-                .then(()=>done())
-                .catch((err)=>done(err))
+    after (()=>{
+        db.close()
     })
 }
 

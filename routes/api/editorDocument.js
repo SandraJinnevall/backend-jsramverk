@@ -4,8 +4,6 @@ const router = express()
 const { DB, Schema } = require('../../db/database')
 const database = require("../../db/database.js");
 
-console.log("schema:??", Schema)
-
 
 router.get('/', async (req, res) => {
     try {

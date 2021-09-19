@@ -10,7 +10,7 @@ chai.use(chaiHttp);
 let id = "";
 
 describe('TESTING ROUTES', () => {
-    // setupTestDb();
+    setupTestDb();
 
 
     describe('GET', () => {

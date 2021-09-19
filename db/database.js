@@ -11,7 +11,6 @@ let schema = EditorDocument;
 if (process.env.NODE_ENV === 'test') {
     console.log("TESTING MODE")
     schema = TestEditorDocument;
-    console.log("schema!!", schema)
 }
 
 module.exports = {
