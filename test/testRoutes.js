@@ -3,6 +3,7 @@ const   setupTestDb  = require('./setup')
 const   server      = require('../server.js')
 const chai = require('chai');
 const chaiHttp = require('chai-http');
+let TestEditorDocuments = require('../models/TestEditorDocument');
 
 chai.should();
 chai.use(chaiHttp);
@@ -11,8 +12,6 @@ let id = "";
 
 describe('TESTING ROUTES', () => {
     setupTestDb();
-
-
     describe('GET', () => {
         it('GET: trying to get all data', (done) => {
             chai.request(server).get('/api/editorDocument')
@@ -69,4 +68,5 @@ describe('TESTING ROUTES', () => {
     //                 .catch((err) => done(err))
     //     });
     // });
+
 })

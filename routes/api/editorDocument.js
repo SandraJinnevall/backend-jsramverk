@@ -7,14 +7,14 @@ const database = require("../../db/database.js");
 
 router.get('/', async (req, res) => {
     try {
-        // await mongoose.connect(DB, console.log("MongoDB connected"));
+        await mongoose.connect(DB, console.log("MongoDB connected"));
         const editorDocuments = await Schema.find()
         res.status(200).json({editorDocuments})
     } catch (error) {
         res.status(500).json({ message: error.message })
     } 
     finally {
-        // await mongoose.connection.close()
+        await mongoose.connection.close()
         console.log("database was shut down")
     }
 })
