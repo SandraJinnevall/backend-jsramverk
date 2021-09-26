@@ -37,6 +37,7 @@ socketio.sockets.on("connection", socket => {
 });
 
 app.use('/', editorDocumentRoutes)
+app.use('/api/editorDocument', editorDocumentRoutes)
 
 const server = http.listen(PORT, () => {
     console.log('api listening on port ' + PORT);

@@ -1,33 +1,34 @@
 # jsramverk-backend
 
 
-###Installation
+## Installation
 
 1. Download this code. 
 2. Install all dependencies with
-´´´
+```
 npm install
-´´´
+```
+
 3. Create a config.json file and add:
-´´´
+```
 {
     "username": "YOUR USERNAME",
     "password": "YOUR PASSWORD"
 }
-´´´
+```
 4. Run
-´´´
+```
 npm start
-´´´
+```
 
-###Routes
+## Routes
 There are four routes, GET, POST, PUT, DELETE
 <br>
-***GET***: "/"
+**GET**: "/"
 <br>
-***PUT***: "/:id"
+**PUT**: "/:id"
 <br>
-***POST***: "/"
+**POST**: "/"
 <br>
-***DELETE***: "/:id"
+**DELETE**: "/:id"
 <br>
