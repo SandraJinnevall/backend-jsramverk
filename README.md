@@ -1,5 +1,5 @@
 # jsramverk-backend
-
+[![Build Status](https://app.travis-ci.com/SandraJinnevall/backend-jsramverk.svg?branch=main)](https://app.travis-ci.com/SandraJinnevall/backend-jsramverk)
 
 ## Installation
 
