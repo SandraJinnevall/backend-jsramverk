@@ -19,7 +19,8 @@
     "mongoose": "^6.0.5",
     "morgan": "^1.10.0",
     "node-html-parser": "^4.1.4",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "socket.io": "^4.2.0"
   },
   "devDependencies": {
     "chai": "^4.3.4",
@@ -30,5 +31,9 @@
     "nodemon": "^2.0.12",
     "nyc": "^15.1.0",
     "supertest": "^6.1.6"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.4",
+    "utf-8-validate": "^5.0.6"
   }
 }
