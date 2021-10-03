@@ -10,7 +10,7 @@ const http = require("http").Server(app);
 
 const socketio = require("socket.io")(http, {
         cors: {
-        origin: ["http://www.student.bth.se", "http://localhost:8080"],
+        origin: ["http://www.student.bth.se", "http://localhost:8080", "http://www.student.bth.se/~saji19/editor/#/home"],
         methods: ["GET", "POST"]
     }
 });
