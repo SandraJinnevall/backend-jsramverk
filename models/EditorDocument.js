@@ -13,6 +13,17 @@ const EditorDocumentSchema = new Schema({
         type: Date,
         default: Date.now,
     },
+    userId: {
+        type: String,
+        required: true,
+    },
+    ownerName: {
+        type: String,
+        required: true,
+    },
+    sharedWith: {
+        type: Array,
+    },
 })
 
 const EditorDocument = model('editorDocument', EditorDocumentSchema)

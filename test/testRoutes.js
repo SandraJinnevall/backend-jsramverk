@@ -25,7 +25,10 @@ describe('TESTING ROUTES', () => {
         it('POST: should get 200 creating a document', (done) => {
             let testDoc = {
                 documentHeading: "TestDoc",
-                documentText: "Test update"
+                documentText: "Test update",
+                ownerName: "användare 1",
+                userId: "123"
+
             };
             chai.request(server)
                 .post("/api/editorDocument/")

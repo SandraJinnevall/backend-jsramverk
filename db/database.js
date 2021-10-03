@@ -11,7 +11,6 @@ if (process.env.NODE_ENV === 'test') {
     db = "mongodb://localhost:27017/test"
 } 
 
-
 module.exports = {
     DB: db,
     Schema: schema

@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const editorDocumentRoutes = require('./routes/api/editorDocument');
+const registerLoginUser = require('./routes/api/registerLoginUser');
 const http = require("http").Server(app);
 
 const socketio = require("socket.io")(http, {
@@ -38,6 +39,7 @@ socketio.sockets.on("connection", socket => {
 
 app.use('/', editorDocumentRoutes)
 app.use('/api/editorDocument', editorDocumentRoutes)
+app.use('/user', registerLoginUser)
 
 const server = http.listen(PORT, () => {
     console.log('api listening on port ' + PORT);
