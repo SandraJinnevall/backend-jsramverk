@@ -10,7 +10,7 @@ const http = require("http").Server(app);
 
 const { graphqlHTTP } = require('express-graphql');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString } = require("graphql");
-const visual = true;
+const visual = false;
 const RootQueryType = require("./routes/graphql/root.js");
 
 const socketio = require("socket.io")(http, {
