@@ -6,13 +6,30 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const editorDocumentRoutes = require('./routes/api/editorDocument');
 const registerLoginUser = require('./routes/api/registerLoginUser');
+const generatePDF = require('./routes/api/generatePDF');
 const http = require("http").Server(app);
 
+//PDF
+pdf = require('express-pdf');
+path = require('path');
+app.use(pdf);
+
+//GRAPHQL
 const { graphqlHTTP } = require('express-graphql');
 const { GraphQLSchema, GraphQLObjectType, GraphQLString } = require("graphql");
 const visual = true;
 const RootQueryType = require("./routes/graphql/root.js");
 
+const schema = new GraphQLSchema({
+    query: RootQueryType
+});
+
+app.use('/graphql', graphqlHTTP({
+    schema: schema,
+    graphiql: visual //glöm inte sätta till false vid produktion!!
+}));
+
+//SOCKET
 const socketio = require("socket.io")(http, {
         cors: {
         origin: ["http://www.student.bth.se", "http://localhost:8080", "http://www.student.bth.se/~saji19/editor/#/home"],
@@ -26,8 +43,6 @@ app.disable('x-powered-by');
 
 app.use(bodyParser.json())
 app.use(morgan('combined'))
-
-
 
 socketio.sockets.on("connection", socket => {
     socket.on('create', room => {
@@ -48,16 +63,8 @@ socketio.sockets.on("connection", socket => {
 app.use('/', editorDocumentRoutes)
 app.use('/api/editorDocument', editorDocumentRoutes)
 app.use('/user', registerLoginUser)
+app.use('/generatePDF', generatePDF)
 
-
-const schema = new GraphQLSchema({
-    query: RootQueryType
-});
-
-app.use('/graphql', graphqlHTTP({
-    schema: schema,
-    graphiql: visual //glöm inte sätta till false vid produktion!!
-}));
 
 const server = http.listen(PORT, () => {
     console.log('api listening on port ' + PORT);
