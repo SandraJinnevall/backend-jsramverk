@@ -7,12 +7,20 @@ const bodyParser = require('body-parser');
 const editorDocumentRoutes = require('./routes/api/editorDocument');
 const registerLoginUser = require('./routes/api/registerLoginUser');
 const generatePDF = require('./routes/api/generatePDF');
+const comments = require('./routes/api/comments');
 const http = require("http").Server(app);
+
+app.use(cors());
+app.options('*', cors());
+app.disable('x-powered-by');
+app.use(bodyParser.json())
+app.use(morgan('combined'))
 
 //PDF
 pdf = require('express-pdf');
 path = require('path');
 app.use(pdf);
+app.use('/generatePDF', generatePDF)
 
 //GRAPHQL
 const { graphqlHTTP } = require('express-graphql');
@@ -37,12 +45,6 @@ const socketio = require("socket.io")(http, {
     }
 });
 
-app.use(cors());
-app.options('*', cors());
-app.disable('x-powered-by');
-
-app.use(bodyParser.json())
-app.use(morgan('combined'))
 
 socketio.sockets.on("connection", socket => {
     socket.on('create', room => {
@@ -63,7 +65,7 @@ socketio.sockets.on("connection", socket => {
 app.use('/', editorDocumentRoutes)
 app.use('/api/editorDocument', editorDocumentRoutes)
 app.use('/user', registerLoginUser)
-app.use('/generatePDF', generatePDF)
+app.use('/comments', comments)
 
 
 const server = http.listen(PORT, () => {

@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
             htmlContent: req.body.documentText
         });
         res.statusCode = 200;
-        return data
+        res.send(data)
     } catch (error) {
         console.log('Need to be a html-string');
         res.status(500).json({ message: error.message })
