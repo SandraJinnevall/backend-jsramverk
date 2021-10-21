@@ -55,6 +55,15 @@ describe('Testing route for the comment-functionality', () => {
                 done();
             });
     });
+    it('POST: try creating comment with nothing, expecting 500', (done) => {
+        chai.request(server)
+            .post("/comments/")
+            .send()
+            .end((err, res) => {
+                res.should.have.status(500);
+                done();
+            });
+    });
     it('DELETE: trying to delete the comment, expecting 200', (done) => {
         chai.request(server).delete('/comments/'+id)
                 .then((res) => {

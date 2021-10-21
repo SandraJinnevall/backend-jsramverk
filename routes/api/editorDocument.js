@@ -19,6 +19,7 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const neweditorDocument = new Schema(req.body)
+    console.log(req.body)
     try {
         await mongoose.connect(DB, { useNewUrlParser: true })
         const editorDocument1 = await neweditorDocument.save()
@@ -30,6 +31,21 @@ router.post('/', async (req, res) => {
         mongoose.connection.close()
     }
 })
+
+// router.post('/', async (req, res) => {
+//     const neweditorDocument = new Schema(req.body)
+//     console.log(req.body);
+//     try {
+//         await mongoose.connect(DB, { useNewUrlParser: true })
+//         const editorDocument1 = await neweditorDocument.save()
+//         res.status(200).json({editorDocument1})
+//     } catch (error) {
+//         res.status(500).json({ message: error.message })
+//     } 
+//     finally {
+//         mongoose.connection.close()
+//     }
+// })
 
 router.put('/:id', async (req, res) => {
     try {

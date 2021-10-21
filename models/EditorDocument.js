@@ -23,7 +23,7 @@ const EditorDocumentSchema = new Schema({
     },
     sharedWith: {
         type: Array,
-    },
+    }
 })
 
 const EditorDocument = model('editorDocument', EditorDocumentSchema)
