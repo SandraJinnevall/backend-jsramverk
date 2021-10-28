@@ -16,15 +16,10 @@ const AllUsersType = new GraphQLObjectType({
             }
         }
       }
-    // fields: () => ({
-    //     return {
-    //     _id: { 
-    //         type: GraphQLString
-    //     },
-    //     name: { 
-    //         type: GraphQLString
-    //     },
-    // })
 });
 
 module.exports = AllUsersType;
+
+
+
+
